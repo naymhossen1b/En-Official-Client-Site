@@ -20,6 +20,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { LuUsers2 } from "react-icons/lu";
 import { RiMemoriesFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import AccountMenu from "../../Pages/Home/AccountMenu/AccountMenu";
 
 const drawerWidth = 240;
 
@@ -113,9 +114,7 @@ function Header(props) {
               <CgMenuGridR />
               <BsChatRightText />
               <IoMdNotificationsOutline />
-              <Link to="/profile">
-                <RxAvatar />
-              </Link>
+              <AccountMenu />
             </Grid>
           </Grid>
         </Toolbar>
