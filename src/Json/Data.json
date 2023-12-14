@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Electronics",
+    "subcategories": ["Smartphones", "Laptops", "Headphones", "Cameras"],
+    "image": "https://imagizer.imageshack.com/img922/8747/XwRyO1.png"
+  },
+  {
+    "id": 2,
+    "name": "Clothing",
+    "subcategories": ["Men's Clothing", "Women's Clothing", "Footwear", "Accessories"],
+    "image": "https://imagizer.imageshack.com/img922/3021/IGv9MK.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Home & Furniture",
+    "subcategories": ["Furniture", "Bedding", "Home Decor", "Kitchen Essentials"],
+    "image": "https://imagizer.imageshack.com/img923/7263/vjfsj6.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Books & Stationery",
+    "subcategories": ["Fiction", "Non-fiction", "Stationery", "Educational"],
+    "image": "https://imagizer.imageshack.com/img924/9186/eEs1rh.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Beauty & Personal Care",
+    "subcategories": ["Skincare", "Haircare", "Makeup", "Fragrances"],
+    "image": "https://imagizer.imageshack.com/img923/9311/iMqz6b.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Sports & Outdoors",
+    "subcategories": ["Outdoor Recreation", "Fitness Equipment", "Sportswear", "Camping Gear"],
+    "image": "https://imagizer.imageshack.com/img922/6100/UwtVap.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Toys & Games",
+    "subcategories": ["Board Games", "Educational Toys", "Outdoor Play", "Action Figures"],
+    "image": "https://imagizer.imageshack.com/img922/2384/MYb4WM.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Jewelry & Watches",
+    "subcategories": ["Rings", "Necklaces", "Watches", "Bracelets"],
+    "image": "https://imagizer.imageshack.com/img923/1007/c4qvoM.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Health & Wellness",
+    "subcategories": [
+      "Vitamins & Supplements",
+      "Fitness Trackers",
+      "Healthy Snacks",
+      "Wellness Books"
+    ],
+    "image": "https://imagizer.imageshack.com/img923/920/ivH1GY.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Automotive",
+    "subcategories": ["Car Accessories", "Motorcycle Gear", "Tools & Equipment", "Car Care"],
+    "image": "https://imagizer.imageshack.com/img923/6690/pQDS8h.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Pets",
+    "subcategories": ["Pet Food", "Pet Toys", "Pet Accessories", "Pet Grooming"],
+    "image": "https://imagizer.imageshack.com/img924/8781/M3JAI3.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Outdoor Clothing",
+    "subcategories": ["Hiking Gear", "Camping Apparel", "Outdoor Footwear", "Rain Jackets"],
+    "image": "https://imagizer.imageshack.com/img922/1540/UQqOe6.jpg"
+  }
+]
+
+
+
+
+
+
+
+
+
+
+

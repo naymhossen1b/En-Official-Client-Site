@@ -1,13 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
-import Home from "../Pages/Home/Home";
-import Friends from "../Pages/Friends/Friends";
-import Profile from "../Pages/Profile/Profile";
-import Video from "../Pages/Videos/Video";
-import Events from "../Pages/Events/Events";
-import Saved from "../Pages/Saved/Saved";
-import Memories from "../Pages/Memories/Memories";
-import Shop from "../Pages/Shop/Shop";
+import Register from "../Auth/Register";
+import Login from "../Auth/Login";
+import Home from "../Home/Home";
 
 const router = createBrowserRouter([
   {
@@ -19,32 +14,12 @@ const router = createBrowserRouter([
             element: <Home />
         },
         {
-            path: '/friends',
-            element: <Friends />
+            path: '/register',
+            element: <Register />
         },
         {
-            path: '/profile',
-            element: <Profile />
-        },
-        {
-            path: '/video',
-            element: <Video />
-        },
-        {
-            path: '/events',
-            element: <Events />
-        },
-        {
-            path: '/saved',
-            element: <Saved />
-        },
-        {
-            path: '/memories',
-            element: <Memories />
-        },
-        {
-            path: '/shop',
-            element: <Shop />
+            path: '/login',
+            element: <Login />
         },
     ]
   },
