@@ -15,7 +15,11 @@ const TwistCategories = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-12 w-9/12 mx-auto">
+      <div className="text-center uppercase py-8 text-4xl font-bold space-y-2">
+        <h2>Happy holidays</h2>
+        <h3>Categories</h3>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 py-12 w-10/12 mx-auto">
         {
             categories?.map( category => <CategoriesCard key={category._id} category={category} />)
         }

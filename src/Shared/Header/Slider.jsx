@@ -10,6 +10,7 @@ const Slider = () => {
              <Swiper
         slidesPerView={1}
         spaceBetween={30}
+        autoplay={{ delay: 5000 }}
         loop={true}
         navigation={true}
         modules={[Pagination, Navigation]}

@@ -3,6 +3,7 @@ import MainLayout from "../Layouts/MainLayout";
 import Register from "../Auth/Register";
 import Login from "../Auth/Login";
 import Home from "../Home/Home";
+import SubCategory from "../Pages/SubCategories/SubCategory";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
             path: '/login',
             element: <Login />
         },
+        {
+          path: '/subCategory/:id',
+          element: <SubCategory />
+        }
     ]
   },
 ]);

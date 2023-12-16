@@ -6,7 +6,7 @@ const CategoriesCard = ({ category }) => {
   const { name, image, _id } = category;
 
   return (
-    <Link to={`/${name}/${_id}`}>
+    <Link to={`/subCategory/${_id}`}>
     <div className="space-y-2">
       <div className="avatar flex justify-center">
         <div className="w-32 mask mask-squircle">

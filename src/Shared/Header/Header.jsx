@@ -8,8 +8,8 @@ import {
 } from "react-icons/fa";
 import { IoMdHappy } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
-import { NavLink } from "react-router-dom";
-import logo from "../../../public/assets/Simple Layout logo.png"
+import { Link, NavLink } from "react-router-dom";
+import logo from "../../../public/assets/Simple Layout logo.png";
 import Categories from "./Categories";
 
 const Header = () => {
@@ -20,7 +20,9 @@ const Header = () => {
         <section className="bg-orange-400 text-white py-5 px-5">
           <div className="flex justify-between items-center gap-5">
             <nav>
-              <img className="w-12 rounded-full" src={logo} alt="" />
+              <Link to="/">
+                <img className="w-12 rounded-2xl" src={logo} alt="" />
+              </Link>
             </nav>
             <nav className="lg:flex hidden text-sm items-center gap-3">
               <NavLink className="flex items-center gap-1">
