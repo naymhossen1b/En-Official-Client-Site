@@ -23,7 +23,6 @@ const ExploreInterests = () => {
     },
   });
 
-
   return (
     <div>
       <div className="uppercase font-bold py-12 text-xl text-center">
@@ -45,8 +44,12 @@ const ExploreInterests = () => {
           >
             {subCategories?.map((cate) => (
               <SwiperSlide
-              className="border border-gray-500 rounded-full py-3 font-medium text-center"
-              key={cate._id}>{cate?.name}</SwiperSlide>
+                className="border border-gray-500 rounded-full py-4 hover:shadow-md hover:animate-pulse font-medium text-center"
+                role="button"
+                key={cate._id}
+              >
+                {cate?.name}
+              </SwiperSlide>
             ))}
           </Swiper>
         </div>

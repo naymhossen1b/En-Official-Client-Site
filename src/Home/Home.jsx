@@ -1,6 +1,6 @@
 import Discount from "../Components/Discount";
 import Commitments from "../Pages/Commitments/Commitments";
-import ExploreInterests from "../Pages/ExploreInterests/ExploreInterests";
+import Products from "../Pages/Products/Products";
 import Slider from "../Shared/Header/Slider";
 import PayLatter from "./PayLatter";
 import TwistCategories from "./TwistCategories";
@@ -16,7 +16,7 @@ const Home = () => {
         <PayLatter />
       </div>
       <div>
-        <ExploreInterests />
+        <Products />
       </div>
     </div>
   );

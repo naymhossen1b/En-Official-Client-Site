@@ -22,7 +22,7 @@ const SubCategory = () => {
           <div key={category} className="text-center space-y-2 font-medium">
             <div className="avatar flex justify-center">
               <div className="w-32 mask mask-squircle">
-                <img className="w-full" src={category?.image} alt="" />
+                <img className="w-full" src={category?.image} alt="category image" />
               </div>
             </div>
             <h3>{category?.name}</h3>

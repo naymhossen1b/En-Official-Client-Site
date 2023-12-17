@@ -1,0 +1,97 @@
+[
+    {
+      "subCategory": "headphones",
+      "product_title": "Wireless Over-Ear Headphones",
+      "product_details": "Premium over-ear headphones with active noise cancellation.",
+      "product_price": 199.99,
+      "product_ratings": 4.5,
+      "product_image": "https://imagizer.imageshack.com/img922/2693/u6QORe.jpg",
+      "product_discount": 10,
+      "product_stock": true,
+      "product_quantity": 100,
+      "product_sold_quantity": 50,
+      "product_brand_name": "Acme Audio",
+      "product_full_specifications": {
+        "wireless_technology": "Bluetooth 5.0",
+        "battery_life": "Up to 20 hours",
+        "color": "Black",
+        "weight": "250g"
+      }
+    },
+    {
+      "subCategory": "headphones",
+      "product_title": "In-Ear Sports Earbuds",
+      "product_details": "Sweatproof and comfortable in-ear headphones for sports enthusiasts.",
+      "product_price": 49.99,
+      "product_ratings": 4.2,
+      "product_image": "https://imagizer.imageshack.com/img922/676/qOWTxi.jpg",
+      "product_discount": 5,
+      "product_stock": true,
+      "product_quantity": 150,
+      "product_sold_quantity": 75,
+      "product_brand_name": "FitTech",
+      "product_full_specifications": {
+        "connectivity": "Wired",
+        "water_resistance": "IPX7",
+        "color": "Red",
+        "cable_length": "1.2m"
+      }
+    },
+    {
+      "subCategory": "headphones",
+      "product_title": "Noise-Canceling Earbuds",
+      "product_details": "Compact earbuds with advanced noise-canceling technology for immersive audio experience.",
+      "product_price": 129.99,
+      "product_ratings": 4.8,
+      "product_image": "https://imagizer.imageshack.com/img922/676/qOWTxi.jpg",
+      "product_discount": 15,
+      "product_stock": true,
+      "product_quantity": 80,
+      "product_sold_quantity": 40,
+      "product_brand_name": "SilentSound",
+      "product_full_specifications": {
+        "noise_canceling": true,
+        "wireless_technology": "Bluetooth 5.1",
+        "color": "Silver",
+        "charging_case": "Yes"
+      }
+    },
+    {
+      "subCategory": "headphones",
+      "product_title": "Gaming Headset with Mic",
+      "product_details": "High-performance gaming headset with a built-in microphone for clear communication.",
+      "product_price": 79.99,
+      "product_ratings": 4.6,
+      "product_image": "https://imagizer.imageshack.com/img922/2693/u6QORe.jpg",
+      "product_discount": 8,
+      "product_stock": true,
+      "product_quantity": 120,
+      "product_sold_quantity": 60,
+      "product_brand_name": "GameMaster",
+      "product_full_specifications": {
+        "compatibility": "PC, Xbox, PlayStation",
+        "surround_sound": true,
+        "color": "Black/Red",
+        "microphone_type": "Detachable"
+      }
+    },
+    {
+      "subCategory": "headphones",
+      "product_title": "Premium Hi-Fi On-Ear Headphones",
+      "product_details": "Luxurious on-ear headphones delivering premium Hi-Fi sound quality.",
+      "product_price": 249.99,
+      "product_ratings": 4.9,
+      "product_image": "https://imagizer.imageshack.com/img924/885/VUnWVD.jpg",
+      "product_discount": 12,
+      "product_stock": true,
+      "product_quantity": 90,
+      "product_sold_quantity": 30,
+      "product_brand_name": "Audiophile Elite",
+      "product_full_specifications": {
+        "driver_size": "50mm",
+        "frequency_response": "10Hz - 40kHz",
+        "color": "Walnut Brown",
+        "material": "Leather, Metal"
+      }
+    }
+  ]

@@ -11,7 +11,7 @@ const Commitments = () => {
     <div>
       <div
         role="button"
-        className="bg-green-600 flex justify-between text-white font-semibold py-2 px-5"
+        className="bg-green-600 md:flex hidden justify-between text-white font-semibold py-2 px-5"
       >
         <h3 className="flex items-center gap-2">
           <VscWorkspaceTrusted /> UrbanHaven's Commitments
@@ -21,7 +21,7 @@ const Commitments = () => {
         </h3>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 py-3 bg-orange-200 px-5">
+      <div className="hidden md:grid grid-cols-2 md:grid-cols-5 gap-8 py-3 bg-orange-200 px-5">
         <div className="text-start border-r-2">
           <h3 className="flex items-center gap-2 text-green-600 font-bold">
             <VscVerified /> Free Shipping

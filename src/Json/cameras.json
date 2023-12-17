@@ -1,0 +1,99 @@
+[
+  {
+    "subCategory": "cameras",
+    "product_title": "Canon EOS Rebel T7i DSLR Camera",
+    "product_details": "24.2MP, 45-Point AF, Dual Pixel CMOS AF, Wi-Fi, NFC",
+    "product_price": 799.99,
+    "product_ratings": 4.5,
+    "product_image": "https://imagizer.imageshack.com/img924/2554/MN3V8n.jpg",
+    "product_discount": 10,
+    "product_stock": true,
+    "product_quantity": 50,
+    "product_sold_quantity": 150,
+    "product_brand_name": "Canon",
+    "product_full_specifications": {
+      "sensor_resolution": "24.2 megapixels",
+      "auto_focus_points": 45,
+      "lcd_screen_size": "3 inches",
+      "wireless_connectivity": "Wi-Fi, NFC",
+      "video_resolution": "Full HD 1080p"
+    }
+  },
+  {
+    "subCategory": "cameras",
+    "product_title": "Nikon D5600 DSLR Camera",
+    "product_details": "24.2MP, 39-Point AF, Bluetooth, Full HD Video",
+    "product_price": 699.99,
+    "product_ratings": 4.2,
+    "product_image": "https://imagizer.imageshack.com/img923/5158/9JVJh2.jpg",
+    "product_discount": 8,
+    "product_stock": true,
+    "product_quantity": 30,
+    "product_sold_quantity": 120,
+    "product_brand_name": "Nikon",
+    "product_full_specifications": {
+      "sensor_resolution": "24.2 megapixels",
+      "auto_focus_points": 39,
+      "lcd_screen_size": "3.2 inches",
+      "wireless_connectivity": "Bluetooth",
+      "video_resolution": "Full HD 1080p"
+    }
+  },
+  {
+    "subCategory": "cameras",
+    "product_title": "Sony Alpha A7 III Mirrorless Camera",
+    "product_details": "24.2MP, 693-Point AF, 4K Video, In-Body Image Stabilization",
+    "product_price": 1999.99,
+    "product_ratings": 4.8,
+    "product_image": "https://imagizer.imageshack.com/img922/1857/qq91em.jpg",
+    "product_discount": 15,
+    "product_stock": true,
+    "product_quantity": 20,
+    "product_sold_quantity": 90,
+    "product_brand_name": "Sony",
+    "product_full_specifications": {
+      "sensor_resolution": "24.2 megapixels",
+      "auto_focus_points": 693,
+      "lcd_screen_size": "3 inches",
+      "video_resolution": "4K UHD"
+    }
+  },
+  {
+    "subCategory": "cameras",
+    "product_title": "Fujifilm X-T4 Mirrorless Camera",
+    "product_details": "26.1MP, 425-Point AF, 4K/60p Video, 5-Axis In-Body Image Stabilization",
+    "product_price": 1799.99,
+    "product_ratings": 4.7,
+    "product_image": "https://imagizer.imageshack.com/img922/912/GLdFfs.jpg",
+    "product_discount": 12,
+    "product_stock": true,
+    "product_quantity": 25,
+    "product_sold_quantity": 80,
+    "product_brand_name": "Fujifilm",
+    "product_full_specifications": {
+      "sensor_resolution": "26.1 megapixels",
+      "auto_focus_points": 425,
+      "lcd_screen_size": "3 inches",
+      "video_resolution": "4K/60p"
+    }
+  },
+  {
+    "subCategory": "cameras",
+    "product_title": "Panasonic Lumix GH5 Mirrorless Camera",
+    "product_details": "20.3MP, 225-Point AF, 4K Video, 5-Axis Dual I.S. 2",
+    "product_price": 1599.99,
+    "product_ratings": 4.6,
+    "product_image": "https://imagizer.imageshack.com/img923/3281/rcTvpZ.jpg",
+    "product_discount": 10,
+    "product_stock": true,
+    "product_quantity": 35,
+    "product_sold_quantity": 100,
+    "product_brand_name": "Panasonic",
+    "product_full_specifications": {
+      "sensor_resolution": "20.3 megapixels",
+      "auto_focus_points": 225,
+      "lcd_screen_size": "3.2 inches",
+      "video_resolution": "4K UHD"
+    }
+  }
+]
