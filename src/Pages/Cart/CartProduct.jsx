@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const CartProduct = ({ product }) => {
 
-  const [refetch] = useCart();
+  const [,refetch] = useCart();
 
   const { product_title, product_image, product_price, product_brand_name, product_stock, _id } =
     product || {};

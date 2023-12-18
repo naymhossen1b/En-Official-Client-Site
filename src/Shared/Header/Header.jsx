@@ -7,12 +7,12 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { IoMdHappy } from "react-icons/io";
-import { RxAvatar } from "react-icons/rx";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/assets/Simple Layout logo.png";
 import Categories from "./Categories";
 import { Badge } from "antd";
 import useCart from "../../Hooks/UseCart";
+import Account from "../../Auth/Account";
 
 const Header = () => {
 
@@ -56,9 +56,8 @@ const Header = () => {
                   </div>
                 </div>
               </NavLink>
-              <NavLink className="flex items-center gap-1">
-                <RxAvatar className="text-2xl" />
-                Account
+              <NavLink>
+                <Account />
               </NavLink>
               <NavLink className="flex text-2xl items-center gap-1">
                 <FaRocketchat />

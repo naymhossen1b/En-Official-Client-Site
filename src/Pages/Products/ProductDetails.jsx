@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const [value, setValue] = useState(3);
 
   const navigate = useNavigate();
-  const [refetch] = useCart();
+  const [,refetch] = useCart();
   const [products] = UseProducts();
   const { id } = useParams();
   const details = products?.find((item) => item._id === id);
