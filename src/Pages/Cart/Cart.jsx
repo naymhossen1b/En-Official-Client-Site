@@ -7,7 +7,7 @@ const Cart = () => {
 
   const totalPrice = cart.reduce((acc, price) => acc + price.product_price, 0).toFixed();
   const discountPrice = cart.reduce((acc, price) => acc + price.product_discount, 0).toFixed();
-  const estimatedTotal = totalPrice - discountPrice
+  const estimatedTotal = totalPrice - discountPrice;
 
   return (
     <section className="py-8">
@@ -28,10 +28,11 @@ const Cart = () => {
               <p className="text-xl font-medium">Limited-time offer</p>
             </div>
           </div>
-          <div className="flex items-center justify-end p-1 py-5">
-            <h3 className="font-bold text-xl">
-              Total <span className="underline">{cart?.length}</span> Items
+          <div className="flex font-bold text-xl items-center justify-between p-1 py-5">
+            <h3>
+              Total <span className="underline text-green-600">{cart?.length}</span> Items
             </h3>
+            <h2>Price</h2>
           </div>
           <hr />
 
