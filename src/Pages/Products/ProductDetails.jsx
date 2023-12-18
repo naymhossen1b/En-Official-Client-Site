@@ -130,8 +130,8 @@ const ProductDetails = () => {
           </div>
         </div>
         <div className="py-8 w-11/12 mx-auto space-y-3">
-          <div className="flex gap-5 items-center justify-center border font-medium px-1 py-2 rounded-full border-orange-600">
-            <button onClick={handleAddCart}>Add to Cart</button>
+          <div onClick={handleAddCart} role="button" className="flex gap-5 items-center justify-center border font-medium px-1 py-2 rounded-full border-orange-600">
+            <button>Add to Cart</button>
             <FaCartPlus className="text-xl text-orange-500" />
           </div>
           <div className="flex gap-5 items-center justify-center border font-medium px-1 py-2 rounded-full border-green-600">

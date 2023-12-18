@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { Radio } from "antd";
 import { FaTrashAlt } from "react-icons/fa";
 
 const CartProduct = ({ product }) => {
@@ -11,10 +10,7 @@ const CartProduct = ({ product }) => {
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12">
         {/* Image section */}
         <div className="col-span-3">
-          <div className="flex items-center">
-            <Radio />
             <img className="w-full mx-auto" src={product_image} alt="" />
-          </div>
         </div>
         {/* Text section */}
         <div className="col-span-7">
@@ -55,7 +51,7 @@ const CartProduct = ({ product }) => {
           </div>
         </div>
         {/* price section */}
-        <div className="col-span-2">
+        <div className="col-span-2 text-xl font-bold">
           <p>${product_price}</p>
         </div>
       </section>

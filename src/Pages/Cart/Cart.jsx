@@ -1,10 +1,13 @@
-import { Radio } from "antd";
 import useCart from "../../Hooks/UseCart";
 import { TiTickOutline } from "react-icons/ti";
 import CartProduct from "./CartProduct";
 
 const Cart = () => {
   const [cart] = useCart();
+
+  const totalPrice = cart.reduce((acc, price) => acc + price.product_price, 0).toFixed();
+  const discountPrice = cart.reduce((acc, price) => acc + price.product_discount, 0).toFixed();
+  const estimatedTotal = totalPrice - discountPrice
 
   return (
     <section className="py-8">
@@ -25,9 +28,10 @@ const Cart = () => {
               <p className="text-xl font-medium">Limited-time offer</p>
             </div>
           </div>
-          <div className="flex items-center justify-start p-1 py-5">
-            <Radio />
-            <h3 className="font-bold text-xl">Select All</h3>
+          <div className="flex items-center justify-end p-1 py-5">
+            <h3 className="font-bold text-xl">
+              Total <span className="underline">{cart?.length}</span> Items
+            </h3>
           </div>
           <hr />
 
@@ -45,17 +49,17 @@ const Cart = () => {
           <div>
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xl font-medium px-5">
-                <h3>Item(s) total:</h3>
-                <h3>$647</h3>
+                <h3>Items total:</h3>
+                <h3>${totalPrice}</h3>
               </div>
               <div className="flex items-center justify-between text-xl font-medium px-5 pb-3">
-                <h3>Item(s) discount:</h3>
-                <h3>$3254</h3>
+                <h3>Items discount:</h3>
+                <h3>${discountPrice}</h3>
               </div>
               <hr className="py-1" />
               <div className="flex items-center justify-between text-xl font-medium px-5">
                 <h3>Estimated total </h3>
-                <h3>$3254</h3>
+                <h3>${estimatedTotal}</h3>
               </div>
             </div>
           </div>

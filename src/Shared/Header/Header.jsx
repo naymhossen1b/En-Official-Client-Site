@@ -74,7 +74,7 @@ const Header = () => {
                   role="button"
                   className="flex items-center gap-3 btn-ghost rounded-full hover:bg-orange-600 p-2"
                 >
-                  <Badge count={cart.length} className="absolute ml-7 -mt-7"></Badge>
+                  <Badge count={cart.length} className="absolute ml-3 -mt-9 border-none"></Badge>
                   <FaOpencart className="text-3xl" />
                 </div>
               </Link>
