@@ -10,11 +10,11 @@ const OrderProduct = ({ items }) => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
         {items?.map((item) => (
           <div key={item._id} className="hover:rounded-md hover:shadow-xl">
-            <Link target="_blank" to={`/productDetails/${item._id}`}>
+            <Link to={`/productDetails/${item._id}`}>
               <img className="w-full py-5 mx-auto h-56" src={item.product_image} alt="" />
             </Link>
             <div className="py-3 px-3">
-              <Link target="_blank" to={`/productDetails/${items._id}`}>
+              <Link to={`/productDetails/${items._id}`}>
                 <h2 className="font-bold">{item?.product_title.slice(0, 20)}...</h2>
               </Link>
               <p className="font-medium text-gray-700">{item?.product_brand_name}</p>
