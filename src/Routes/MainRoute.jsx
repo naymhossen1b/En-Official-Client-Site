@@ -4,6 +4,7 @@ import Register from "../Auth/Register";
 import Login from "../Auth/Login";
 import Home from "../Home/Home";
 import SubCategory from "../Pages/SubCategories/SubCategory";
+import ProductDetails from "../Pages/Products/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         {
           path: '/subCategory/:id',
           element: <SubCategory />
+        },
+        {
+          path: '/productDetails/:id',
+          element: <ProductDetails />
         }
     ]
   },
