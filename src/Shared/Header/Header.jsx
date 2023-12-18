@@ -11,8 +11,13 @@ import { RxAvatar } from "react-icons/rx";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/assets/Simple Layout logo.png";
 import Categories from "./Categories";
+import { Badge } from "antd";
+import useCart from "../../Hooks/UseCart";
 
 const Header = () => {
+
+  const [cart] = useCart()
+
   return (
     <div>
       <div>
@@ -64,13 +69,15 @@ const Header = () => {
               </NavLink>
             </nav>
             <nav>
-              <div
-                role="button"
-                className="flex items-center gap-1 btn-ghost rounded-full hover:bg-orange-600 p-2"
-              >
-                <FaOpencart className="text-3xl" />
-                Cart
-              </div>
+              <Link to="/carts">
+                <div
+                  role="button"
+                  className="flex items-center gap-3 btn-ghost rounded-full hover:bg-orange-600 p-2"
+                >
+                  <Badge count={cart.length} className="absolute ml-7 -mt-7"></Badge>
+                  <FaOpencart className="text-3xl" />
+                </div>
+              </Link>
             </nav>
           </div>
         </section>

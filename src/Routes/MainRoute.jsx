@@ -5,6 +5,7 @@ import Login from "../Auth/Login";
 import Home from "../Home/Home";
 import SubCategory from "../Pages/SubCategories/SubCategory";
 import ProductDetails from "../Pages/Products/ProductDetails";
+import Cart from "../Pages/Cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         {
             path: '/login',
             element: <Login />
+        },
+        {
+            path: '/carts',
+            element: <Cart />
         },
         {
           path: '/subCategory/:id',

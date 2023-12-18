@@ -1,39 +1,82 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UseProducts from "../../Hooks/UseProducts";
 import { Rate } from "antd";
 import { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
+import SecureAxios from "../../Hooks/SecureAxios";
+import toast from "react-hot-toast";
+import useCart from "../../Hooks/UseCart";
 
 const ProductDetails = () => {
   const [value, setValue] = useState(3);
 
+  const navigate = useNavigate();
+  const [refetch] = useCart();
   const [products] = UseProducts();
   const { id } = useParams();
   const details = products?.find((item) => item._id === id);
+  const {
+    product_title,
+    product_image,
+    product_price,
+    product_details,
+    product_brand_name,
+    product_ratings,
+    product_discount,
+    product_stock,
+    product_full_specifications,
+    product_sold_quantity,
+  } = details || {};
+
+  const handleAddCart = async () => {
+    const cartData = {
+      product_title,
+      product_image,
+      product_price,
+      product_details,
+      product_brand_name,
+      product_ratings,
+      product_discount,
+      product_stock,
+      product_full_specifications,
+      product_sold_quantity,
+    };
+    await SecureAxios.post("/userCarts", cartData).then((res) => {
+      // console.log(res.data);
+      toast.success(`Product Added Success!`);
+      navigate("/carts");
+      refetch();
+    });
+  };
 
   return (
     <div className="py-8 grid gap-5 grid-cols-1 md:grid-cols-12">
       {/*  Images Section */}
       <div className=" col-span-4">
-        <img className="w-full mx-auto" src={details?.product_image} alt="" />
+        <img className="w-full mx-auto" src={product_image} alt="" />
       </div>
       {/*  Middle Text section */}
       <div className=" col-span-5">
-        <h1 className="text-xl font-medium">{details?.product_title}</h1>
-        <h1 className="text-xl font-medium">{details?.product_details}</h1>
-        <p className="text-sm">Powered by - {details?.product_brand_name}</p>
-        <a className="font-medium py-1 text-orange-700" target="_blank" rel="noreferrer" href="https://www.apple.com">
-          Visit the {details?.product_brand_name} Store
+        <h1 className="text-xl font-medium">{product_title}</h1>
+        <h1 className="text-xl font-medium">{product_details}</h1>
+        <p className="text-sm">Powered by - {product_brand_name}</p>
+        <a
+          className="font-medium py-1 text-orange-700"
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.apple.com"
+        >
+          Visit the {product_brand_name} Store
         </a>
         <div className="mt-2">
           <div className="flex items-center gap-1">
-            <h4>{details?.product_ratings}</h4>
+            <h4>{product_ratings}</h4>
             <Rate onChange={setValue} value={value} />
           </div>
         </div>
         <p className="text-sm py-3 text-green-500">
-          {details?.product_sold_quantity}K+
+          {product_sold_quantity}K+
           <span className="text-black">bought in past month</span>
         </p>
         <hr />
@@ -42,29 +85,27 @@ const ProductDetails = () => {
             Deal
           </button>
           <div className="flex text-center mt-3 gap-3">
-            <p className="text-red-400">
-              {details?.product_discount > 0 ? details?.product_discount + "% 0ff" : ""}
-            </p>
-              <h3 className="text-xl font-bold">${details?.product_price}</h3>
+            <p className="text-red-400">{product_discount > 0 ? product_discount + "% 0ff" : ""}</p>
+            <h3 className="text-xl font-bold">${product_price}</h3>
           </div>
           <div className="py-5">
             <h3 className="text-xl font-medium text-orange-500">Specifications :</h3>
             <div className="space-y-1 mt-3 font-medium">
-                <p><span className="font-bold">Display: </span>{details?.product_full_specifications?.display}</p>
-                <p><span className="font-bold">Cheap: </span>{details?.product_full_specifications?.processor}</p>
-                <p><span className="font-bold">Camera: </span>{details?.product_full_specifications?.camera}</p>
-                <p><span className="font-bold">Storage: </span>{details?.product_full_specifications?.storage}</p>
+              <p>{product_full_specifications?.display}</p>
+              <p>{product_full_specifications?.processor}</p>
+              <p>{product_full_specifications?.camera}</p>
+              <p>{product_full_specifications?.storage}</p>
             </div>
           </div>
-        <hr />
+          <hr />
         </div>
       </div>
       {/*  Buy now & price Section */}
       <div className="col-span-3 rounded-md p-2">
-        <h3 className="text-xl">${details?.product_price}</h3>
+        <h3 className="text-xl">${product_price}</h3>
         <div className="py-2">
           <h2>
-            {details?.product_stock === true ? (
+            {product_stock === true ? (
               <h3 className="flex text-green-600 items-center gap-1 font-medium">In Stock</h3>
             ) : (
               <h3 className="flex text-red-600 items-center gap-1 font-medium">Stock Out</h3>
@@ -90,7 +131,7 @@ const ProductDetails = () => {
         </div>
         <div className="py-8 w-11/12 mx-auto space-y-3">
           <div className="flex gap-5 items-center justify-center border font-medium px-1 py-2 rounded-full border-orange-600">
-            <button>Add to Cart</button>
+            <button onClick={handleAddCart}>Add to Cart</button>
             <FaCartPlus className="text-xl text-orange-500" />
           </div>
           <div className="flex gap-5 items-center justify-center border font-medium px-1 py-2 rounded-full border-green-600">
