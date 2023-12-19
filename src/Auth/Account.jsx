@@ -1,15 +1,18 @@
 import { RxAvatar } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
+import toast from "react-hot-toast";
 
 const Account = () => {
   const { user, logOut } = UseAuth();
   // console.log("===========>", user)
 
-
-
   const handleLogout = () => {
-    logOut();
+    return logOut()
+      .then(() => {})
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   return (
@@ -24,7 +27,7 @@ const Account = () => {
           className="dropdown-content z-[10] menu bg-orange-200 w-full font-bold p-3 text-black rounded-md"
         >
           {user?.email ? (
-            <button onClick={handleLogout}>
+            <button onClick={() => handleLogout()}>
               <Link to="/login">Logout</Link>
             </button>
           ) : (
