@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="px-96 py-5">
+    <div className="px-96">
       <form>
         <div>
           <h1 className="text-3xl text-center text-black font-bold py-5">UrbanHaven</h1>

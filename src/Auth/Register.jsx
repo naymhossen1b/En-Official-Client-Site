@@ -1,80 +1,97 @@
-import toast from "react-hot-toast";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
-import { useNavigate } from "react-router-dom";
+import SecureAxios from "../Hooks/SecureAxios";
+import toast from "react-hot-toast";
 
 const Register = () => {
-  const { googleJoin, userCreate, updateUser } = UseAuth();
+  const { userCreate, updateUser } = UseAuth();
   const navigate = useNavigate();
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const username = form.username.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const uerInfo = { username, email, password}
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    userCreate(data.email, data.password)
+      .then(() => {
+        updateUser(data.displayName, data.photoURL);
 
-    
-  };
+        const userInfo = { name: data.name, email: data.email };
 
-  const handleGoogle = async () => {
-    await googleJoin();
-    toast.success("User Account Create Success!");
-    navigate("/");
+        SecureAxios.post("/users", userInfo)
+          .then((res) => {
+            if (res.data.insertedId) {
+              toast.success("User created successfully");
+              reset();
+              navigate("/");
+            }
+          })
+          .catch((err) => {
+            toast.error(err.message);
+          });
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   return (
-    <div>
-      <form className="card-body" onSubmit={handleRegister}>
-        <h2 className="text-2xl font-bold text-center">Create your own account</h2>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Name</span>
-          </label>
-          <input
-            type="text"
-            placeholder="username"
-            name="username"
-            className="input input-bordered"
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input
-            type="email"
-            placeholder="#######@yahoo.com"
-            name="email"
-            className="input input-bordered"
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            className="input input-bordered"
-            required
-          />
-          <label className="label">
-            <div href="#" className="label-text-alt link link-hover">
-              Forgot password?
-            </div>
-          </label>
-        </div>
-        <div className="form-control mt-6">
-          <button type="submit" className="btn btn-primary">
-            Register
-          </button>
-        </div>
+    <div className="px-96">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <button onClick={handleGoogle}>Google</button>
+          <h1 className="text-3xl text-center text-black font-bold py-5">UrbanHaven</h1>
+          <section className="border rounded-md border-gray-600 p-5 space-y-2">
+            <h3 className="text-2xl font-semibold py-4">Create an Account</h3>
+            <div>
+              <label className="font-bold">Your Name</label>
+              <input
+                {...register("name")}
+                id="hiddenBorderInput"
+                type="text"
+                name="name"
+                className="border-b-2 border-transparent focus:outline-none focus:border-orange-500 border-b-orange-500 w-full py-2"
+                placeholder="first & last name.."
+              />
+            </div>
+            <div>
+              <label className="font-bold">Your Email</label>
+              <input
+                {...register("email")}
+                id="hiddenBorderInput"
+                type="email"
+                name="email"
+                className="border-b-2 border-transparent focus:outline-none focus:border-orange-500 border-b-orange-500 w-full py-2"
+                placeholder="example@yahoo.com"
+              />
+            </div>
+            <div>
+              <label className="font-bold">Your Password</label>
+              <input
+                {...register("password")}
+                id="hiddenBorderInput"
+                type="password"
+                name="password"
+                className="border-b-2 border-transparent focus:outline-none focus:border-orange-500 border-b-orange-500 w-full py-2"
+                placeholder="**********"
+              />
+            </div>
+            <div className="flex justify-center text-center items-center py-4">
+              <button
+                type="submit"
+                className="border rounded-full bg-orange-600 text-white px-2 py-1 w-full mx-auto hover:text-green-600 font-bold text-xl"
+              >
+                Continue
+              </button>
+            </div>
+          </section>
+          <div>
+            <div className="divider divider-warning font-medium text-sm text-gray-400">
+              Already have a account?
+            </div>
+            <div className="border border-gray-500 rounded-md px-1 text-center font-medium py-3">
+              <Link to="/login">
+                <h2>Login your UrbanHaven account</h2>
+              </Link>
+            </div>
+          </div>
         </div>
       </form>
     </div>

@@ -15,8 +15,7 @@ import useCart from "../../Hooks/UseCart";
 import Account from "../../Auth/Account";
 
 const Header = () => {
-
-  const [cart] = useCart()
+  const [cart] = useCart();
 
   return (
     <div>
