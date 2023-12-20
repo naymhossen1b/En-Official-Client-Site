@@ -3,6 +3,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import SecureAxios from "../../Hooks/SecureAxios";
 import useCart from "../../Hooks/UseCart";
 import Swal from "sweetalert2";
+import { CiCircleMinus, CiCirclePlus } from "react-icons/ci"; 
 
 const CartProduct = ({ product }) => {
 
@@ -64,7 +65,7 @@ const CartProduct = ({ product }) => {
               <div className="flex items-center gap-2">
                 <p> 20 </p>
                 <p role="button" className="text-green-600 text-xl">
-                  +
+                  <CiCirclePlus />
                 </p>
               </div>
               <div>
@@ -72,7 +73,7 @@ const CartProduct = ({ product }) => {
               </div>
               <div className="flex items-center gap-2">
                 <p className="text-red-600 text-xl" role="button">
-                  -
+                  <CiCircleMinus />
                 </p>
                 <p>0</p>
               </div>

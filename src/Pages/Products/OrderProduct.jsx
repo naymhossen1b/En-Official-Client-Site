@@ -3,8 +3,11 @@ import { FaRegStar, FaCartPlus } from "react-icons/fa";
 import { BsEmojiTear } from "react-icons/bs";
 import { MdOutlineVerified } from "react-icons/md";
 import { Link } from "react-router-dom";
+import UseRating from "../../Hooks/UseRating";
 
 const OrderProduct = ({ items }) => {
+  const [rating] = UseRating();
+
   return (
     <div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
@@ -13,6 +16,19 @@ const OrderProduct = ({ items }) => {
             <Link to={`/productDetails/${item._id}`}>
               <img className="w-full py-5 mx-auto h-56" src={item.product_image} alt="" />
             </Link>
+            <div className="absolute -mt-4 ml-[155px]">
+              <h2>
+                {item.product_stock === true ? (
+                  <h3 className="flex items-center text-sm gap-1 font-medium">
+                    Stock <MdOutlineVerified className="text-green-500" />
+                  </h3>
+                ) : (
+                  <h3 className="flex items-center gap-1 font-medium">
+                    Stock <BsEmojiTear className="text-red-500" />
+                  </h3>
+                )}
+              </h2>
+            </div>
             <div className="py-3 px-3">
               <Link to={`/productDetails/${items._id}`}>
                 <h2 className="font-bold">{item?.product_title.slice(0, 20)}...</h2>
@@ -23,17 +39,7 @@ const OrderProduct = ({ items }) => {
                   <button className="flex items-center gap-1 px-2 border rounded-md bg-green-500 text-white">
                     {item?.product_ratings} <FaRegStar />
                   </button>
-                  <h2>
-                    {item.product_stock === true ? (
-                      <h3 className="flex items-center gap-1 font-medium">
-                        Stock <MdOutlineVerified className="text-green-500" />
-                      </h3>
-                    ) : (
-                      <h3 className="flex items-center gap-1 font-medium">
-                        Stock <BsEmojiTear className="text-red-500" />
-                      </h3>
-                    )}
-                  </h2>
+                  <p className="font-medium">({rating?.length})</p>
                 </div>
                 <button>
                   <FaCartPlus className="text-3xl text-orange-500" />

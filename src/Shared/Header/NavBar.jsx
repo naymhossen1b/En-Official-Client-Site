@@ -108,13 +108,15 @@ const NavBar = () => {
               En
             </NavLink>
           </div>
-          <div
-            role="button"
-            className="flex items-center mr-3 btn-ghost rounded-full hover:bg-orange-600 p-2"
-          >
-            <Badge count={cart.length} className="absolute ml-3 -mt-9 border-none" />
-            <FaOpencart className="text-3xl" />
-          </div>
+          <Link to='/carts'>
+            <div
+              role="button"
+              className="flex items-center mr-3 btn-ghost rounded-full hover:bg-orange-600 p-2"
+            >
+              <Badge count={cart.length} className="absolute ml-3 -mt-9 border-none" />
+              <FaOpencart className="text-3xl" />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

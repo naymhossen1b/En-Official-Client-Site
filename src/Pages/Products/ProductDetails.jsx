@@ -1,24 +1,24 @@
 import { useNavigate, useParams } from "react-router-dom";
 import UseProducts from "../../Hooks/UseProducts";
-import { Rate } from "antd";
-import { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import SecureAxios from "../../Hooks/SecureAxios";
 import toast from "react-hot-toast";
 import useCart from "../../Hooks/UseCart";
 import UseAuth from "../../Hooks/UseAuth";
+import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
+import Rating from "../../Components/Rating";
 
 const ProductDetails = () => {
-  const [value, setValue] = useState(3);
 
   const { user } = UseAuth();
   const navigate = useNavigate();
-  const [,refetch] = useCart();
+  const [, refetch] = useCart();
   const [products] = UseProducts();
   const { id } = useParams();
   const details = products?.find((item) => item._id === id);
   const {
+    _id,
     product_title,
     product_image,
     product_price,
@@ -29,6 +29,7 @@ const ProductDetails = () => {
     product_stock,
     product_full_specifications,
     product_sold_quantity,
+    product_quantity,
   } = details || {};
 
   const handleAddCart = async () => {
@@ -53,6 +54,18 @@ const ProductDetails = () => {
     });
   };
 
+  /// Increment & Decrement \\\
+
+  const handleIncrement = async (id) => {
+    await SecureAxios.put(`/userCarts/increment/${id}`);
+    refetch();
+  };
+
+  const handleDecrement = async (id) => {
+    await SecureAxios.put(`/userCarts/decrement/${id}`);
+    refetch();
+  };
+
   return (
     <div className="py-8 grid gap-5 grid-cols-1 md:grid-cols-12">
       {/*  Images Section */}
@@ -73,10 +86,7 @@ const ProductDetails = () => {
           Visit the {product_brand_name} Store
         </a>
         <div className="mt-2">
-          <div className="flex items-center gap-1">
-            <h4>{product_ratings}</h4>
-            <Rate onChange={setValue} value={value} />
-          </div>
+          <Rating productId={_id} />
         </div>
         <p className="text-sm py-3 text-green-500">
           {product_sold_quantity}K+
@@ -117,23 +127,28 @@ const ProductDetails = () => {
         </div>
         <div className="flex items-center justify-evenly font-medium">
           <div className="flex items-center gap-2">
-            <p>20</p>
-            <p role="button" className="text-green-600 text-xl">
-              +
-            </p>
-          </div>
-          <div>
-            <p>Quantity</p>
+            {/* <p>20</p> */}
+            <button onClick={() => handleIncrement(_id)} className="text-green-600 text-xl">
+              <CiCirclePlus />
+            </button>
           </div>
           <div className="flex items-center gap-2">
-            <p className="text-red-600 text-xl" role="button">
-              -
-            </p>
-            <p>0</p>
+            <p>Available</p>
+            <p>{product_quantity}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <button onClick={() => handleDecrement(_id)} className="text-red-600 text-xl">
+              <CiCircleMinus />
+            </button>
+            {/* <p>0</p> */}
           </div>
         </div>
         <div className="py-8 w-11/12 mx-auto space-y-3">
-          <div onClick={handleAddCart} role="button" className="flex gap-5 items-center justify-center border font-medium px-1 py-2 rounded-full border-orange-600">
+          <div
+            onClick={handleAddCart}
+            role="button"
+            className="flex gap-5 items-center justify-center border font-medium px-1 py-2 rounded-full border-orange-600"
+          >
             <button>Add to Cart</button>
             <FaCartPlus className="text-xl text-orange-500" />
           </div>
