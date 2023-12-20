@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import SecureAxios from "../../Hooks/SecureAxios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const SubCategory = () => {
   const { data: subCategory = [] } = useQuery({
@@ -19,14 +19,16 @@ const SubCategory = () => {
     <div className="w-9/12 mx-auto py-14">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {categories?.subcategories?.map((category) => (
-          <div key={category} className="text-center space-y-2 font-medium">
-            <div className="avatar flex justify-center">
-              <div className="w-32 mask mask-squircle">
-                <img className="w-full" src={category?.image} alt="category image" />
+          <Link key={category} to={`product/${category.name}`}>
+            <div role="button" className="text-center space-y-2 font-medium">
+              <div className="avatar flex justify-center">
+                <div className="w-32 mask mask-squircle">
+                  <img className="w-full" src={category?.image} alt="category image" />
+                </div>
               </div>
+              <h3>{category?.name}</h3>
             </div>
-            <h3>{category?.name}</h3>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

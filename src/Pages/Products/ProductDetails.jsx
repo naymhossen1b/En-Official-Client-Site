@@ -10,7 +10,6 @@ import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import Rating from "../../Components/Rating";
 
 const ProductDetails = () => {
-
   const { user } = UseAuth();
   const navigate = useNavigate();
   const [, refetch] = useCart();
@@ -32,6 +31,8 @@ const ProductDetails = () => {
     product_quantity,
   } = details || {};
 
+  console.log(product_stock);
+
   const handleAddCart = async () => {
     const cartData = {
       email: user.email,
@@ -46,12 +47,17 @@ const ProductDetails = () => {
       product_full_specifications,
       product_sold_quantity,
     };
-    await SecureAxios.post("/userCarts", cartData).then(() => {
-      // console.log(res.data);
-      toast.success(`Product Added Success!`);
-      navigate("/carts");
-      refetch();
-    });
+
+    if (product_stock) {
+      await SecureAxios.post("/userCarts", cartData).then(() => {
+        // console.log(res.data);
+        toast.success(`Product Added Success!`);
+        navigate("/carts");
+        refetch();
+      });
+    } else {
+      toast.error("Product not available 🙁 !");
+    }
   };
 
   /// Increment & Decrement \\\
