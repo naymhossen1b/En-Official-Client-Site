@@ -7,10 +7,12 @@ import { HiOutlineEmojiHappy } from "react-icons/hi";
 import SecureAxios from "../../Hooks/SecureAxios";
 import toast from "react-hot-toast";
 import useCart from "../../Hooks/UseCart";
+import UseAuth from "../../Hooks/UseAuth";
 
 const ProductDetails = () => {
   const [value, setValue] = useState(3);
 
+  const { user } = UseAuth();
   const navigate = useNavigate();
   const [,refetch] = useCart();
   const [products] = UseProducts();
@@ -31,6 +33,7 @@ const ProductDetails = () => {
 
   const handleAddCart = async () => {
     const cartData = {
+      email: user.email,
       product_title,
       product_image,
       product_price,
@@ -42,7 +45,7 @@ const ProductDetails = () => {
       product_full_specifications,
       product_sold_quantity,
     };
-    await SecureAxios.post("/userCarts", cartData).then((res) => {
+    await SecureAxios.post("/userCarts", cartData).then(() => {
       // console.log(res.data);
       toast.success(`Product Added Success!`);
       navigate("/carts");
