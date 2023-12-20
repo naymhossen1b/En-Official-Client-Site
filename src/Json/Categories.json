@@ -1,0 +1,315 @@
+[
+    {
+      "_id": "657b53acd5b709051e580382",
+      "id": 1,
+      "name": "Electronics",
+      "subcategories": [
+        {
+          "name": "Smartphones",
+          "subName": "smartphones",
+          "image": "https://imagizer.imageshack.com/img922/1701/J1rO72.jpg"
+        },
+        {
+          "name": "Laptops",
+          "subName": "laptops",
+          "image": "https://imagizer.imageshack.com/img922/9082/nxSzcD.jpg"
+        },
+        {
+          "name": "Headphones",
+          "subName": "headphones",
+          "image": "https://imagizer.imageshack.com/img924/2428/JIKDcY.jpg"
+        },
+        {
+          "name": "Cameras",
+          "subName": "cameras",
+          "image": "https://imagizer.imageshack.com/img923/3606/ElEgS9.jpg"
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img922/8747/XwRyO1.png"
+    },
+    {
+      "_id": "657b53acd5b709051e580383",
+      "id": 2,
+      "name": "Clothing",
+      "subcategories": [
+        {
+          "name": "Men's Clothing",
+          "subName": "mansClothing",
+          "image": "https://imagizer.imageshack.com/img923/7237/Prs7MY.jpg"
+        },
+        {
+          "name": "Women's Clothing",
+          "subName": "WomensClothing",
+          "image": "https://imagizer.imageshack.com/img924/1115/HWdL6P.jpg"
+        },
+        {
+          "name": "Footwear",
+          "subName": "footwear",
+          "image": "https://imagizer.imageshack.com/img923/163/sAPbj8.jpg"
+        },
+        {
+          "name": "Accessories",
+          "subName": "accessories",
+          "image": "https://imagizer.imageshack.com/img922/263/fduvSN.jpg"
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img922/3021/IGv9MK.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e580384",
+      "id": 3,
+      "name": "Home & Furniture",
+      "subcategories": [
+        {
+          "name": "Furniture",
+          "subName": "furniture",
+          "image": "http://imageshack.com/a/img922/3600/pNiCS8.jpg"
+        },
+        {
+          "name": "Bedding",
+          "subName": "bedding",
+          "image": "http://imageshack.com/a/img922/1319/EpEkfm.jpg"
+        },
+        {
+          "name": "Home Decor",
+          "subName": "homeDecor",
+          "image": "http://imageshack.com/a/img924/9870/VoSBQh.jpg"
+        },
+        {
+          "name": "Kitchen Essentials",
+          "subName": "kitchenEssentials",
+          "image": "http://imageshack.com/a/img922/9411/05aucq.jpg"
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img923/7263/vjfsj6.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e580385",
+      "id": 4,
+      "name": "Books & Stationery",
+      "subcategories": [
+        {
+          "name": "Fiction",
+          "subName": "fiction",
+          "image": "http://imageshack.com/a/img922/9374/c6Dw9N.jpg"
+        },
+        {
+          "name": "Non-fiction",
+          "subName": "non-fiction",
+          "image": "http://imageshack.com/a/img922/5048/fHYkGi.png"
+        },
+        {
+          "name": "Stationery",
+          "subName": "stationery",
+          "image": "http://imageshack.com/a/img924/4539/wk5Xje.jpg"
+        },
+        {
+          "name": "Educational",
+          "subName": "educational",
+          "image": "http://imageshack.com/a/img924/5812/0IFaGs.jpg"
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img924/9186/eEs1rh.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e580386",
+      "id": 5,
+      "name": "Beauty & Personal Care",
+      "subcategories": [
+        {
+          "name": "Skincare",
+          "subName": "skincare",
+          "image": "https://imagizer.imageshack.com/img924/2324/GLKJe2.jpg"
+        },
+        {
+          "name": "Haircare",
+          "subName": "haircare",
+          "image": "https://imagizer.imageshack.com/img923/6573/d72lOD.jpg"
+        },
+        {
+          "name": "Makeup",
+          "subName": "makeup",
+          "image": "https://imagizer.imageshack.com/img922/7539/Q6JP9F.jpg      "
+        },
+        {
+          "name": "Fragrances",
+          "subName": "fragrances",
+          "image": "https://imagizer.imageshack.com/img922/5858/WT6KJp.jpg"
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img923/9311/iMqz6b.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e580387",
+      "id": 6,
+      "name": "Sports & Outdoors",
+      "subcategories": [
+        {
+          "name": "Outdoor Recreation",
+          "subName": "outdoorRecreation",
+          "image": "http://imageshack.com/a/img923/703/Z3i32r.png"
+        },
+        {
+          "name": "Fitness Equipment",
+          "subName": "fitnessEquipment",
+          "image": "http://imageshack.com/a/img924/5425/OxTaFB.jpg"
+        },
+        {
+          "name": "Sportswear",
+          "subName": "sportswear",
+          "image": "http://imageshack.com/a/img923/703/Z3i32r.png"
+        },
+        {
+          "name": "Camping Gear",
+          "subName": "campingGear",
+          "image": "http://imageshack.com/a/img923/5801/CJX0CD.jpg"
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img922/6100/UwtVap.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e580388",
+      "id": 7,
+      "name": "Toys & Games",
+      "subcategories": [
+        {
+          "name": "Board Games",
+          "image": ""
+        },
+        {
+          "name": "Educational Toys",
+          "image": ""
+        },
+        {
+          "name": "Outdoor Play",
+          "image": ""
+        },
+        {
+          "name": "Action Figures",
+          "image": ""
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img922/2384/MYb4WM.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e580389",
+      "id": 8,
+      "name": "Jewelry & Watches",
+      "subcategories": [
+        {
+          "name": "Rings",
+          "image": ""
+        },
+        {
+          "name": "Necklaces",
+          "image": ""
+        },
+        {
+          "name": "Watches",
+          "image": ""
+        },
+        {
+          "name": "Bracelets",
+          "image": ""
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img923/1007/c4qvoM.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e58038a",
+      "id": 9,
+      "name": "Health & Wellness",
+      "subcategories": [
+        {
+          "name": "Vitamins & Supplements",
+          "image": ""
+        },
+        {
+          "name": "Fitness Trackers",
+          "image": ""
+        },
+        {
+          "name": "Healthy Snacks",
+          "image": ""
+        },
+        {
+          "name": "Wellness Books",
+          "image": ""
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img923/920/ivH1GY.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e58038b",
+      "id": 10,
+      "name": "Automotive",
+      "subcategories": [
+        {
+          "name": "Car Accessories",
+          "image": ""
+        },
+        {
+          "name": "Motorcycle Gear",
+          "image": ""
+        },
+        {
+          "name": "Tools & Equipment",
+          "image": ""
+        },
+        {
+          "name": "Car Care",
+          "image": ""
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img923/6690/pQDS8h.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e58038c",
+      "id": 11,
+      "name": "Pets",
+      "subcategories": [
+        {
+          "name": "Pet Food",
+          "image": ""
+        },
+        {
+          "name": "Pet Toys",
+          "image": ""
+        },
+        {
+          "name": "Pet Accessories",
+          "image": ""
+        },
+        {
+          "name": "Pet Grooming",
+          "image": ""
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img924/8781/M3JAI3.jpg"
+    },
+    {
+      "_id": "657b53acd5b709051e58038d",
+      "id": 12,
+      "name": "Outdoor Clothing",
+      "subcategories": [
+        {
+          "name": "Hiking Gear",
+          "image": ""
+        },
+        {
+          "name": "Camping Apparel",
+          "image": ""
+        },
+        {
+          "name": "Outdoor Footwear",
+          "image": ""
+        },
+        {
+          "name": "Rain Jackets",
+          "image": ""
+        }
+      ],
+      "image": "https://imagizer.imageshack.com/img922/1540/UQqOe6.jpg"
+    }
+  ]
+  

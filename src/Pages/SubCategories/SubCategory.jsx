@@ -19,7 +19,7 @@ const SubCategory = () => {
     <div className="w-9/12 mx-auto py-14">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {categories?.subcategories?.map((category) => (
-          <Link key={category} to={`product/${category.name}`}>
+          <Link key={category} to={`product/${category?.subName}`}>
             <div role="button" className="text-center space-y-2 font-medium">
               <div className="avatar flex justify-center">
                 <div className="w-32 mask mask-squircle">
