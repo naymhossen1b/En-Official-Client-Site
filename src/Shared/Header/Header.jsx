@@ -13,6 +13,7 @@ import Categories from "./Categories";
 import { Badge } from "antd";
 import useCart from "../../Hooks/UseCart";
 import Account from "../../Auth/Account";
+import { IoReorderThree } from "react-icons/io5";
 
 const Header = () => {
   const [cart] = useCart();
@@ -20,9 +21,26 @@ const Header = () => {
   return (
     <div>
       <div>
-        <section></section>
+        <section className="absolute lg:hidden">
+          <div className="dropdown dropdown-hover">
+            <div tabIndex={0} role="button" className="m-1">
+              <IoReorderThree className="text-white" />
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content font-medium z-[10] menu w-64 rounded-sm mx-auto bg-white"
+            >
+              <li>
+                <a>Item 1</a>
+              </li>
+              <li>
+                <a>Item 2</a>
+              </li>
+            </ul>
+          </div>
+        </section>
         <section className="bg-orange-400 text-white py-5 px-5">
-          <div className="flex justify-between items-center gap-5">
+          <div className="hidden lg:flex justify-between items-center gap-5">
             <nav>
               <Link to="/">
                 <img className="w-12 rounded-2xl" src={logo} alt="" />

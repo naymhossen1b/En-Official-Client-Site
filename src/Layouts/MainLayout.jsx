@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Header from "../Shared/Header/Header";
 import Footer from "../Shared/Footer/Footer";
+import NavBar from "../Shared/Header/NavBar";
 
 const MainLayout = () => {
   return (
     <div className="mx-auto w-11/12">
-      <Header />
+      <NavBar />
       <div className="min-h-screen">
         <Outlet />
       </div>

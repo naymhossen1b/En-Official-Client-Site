@@ -1,19 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
-
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
-const Categories = () => {
+
+const SmCategories = () => {
   return (
     <div>
-      <div className="dropdown dropdown-hover">
-        <div tabIndex={0} role="btn" className="">
+      <div className="dropdown dropdown-bottom">
+        <div tabIndex={0} role="button" className="btn m-1">
           <NavLink className="flex items-center gap-1">
             Categories <FaChevronDown />
           </NavLink>
         </div>
         <ul
           tabIndex={0}
-          className="dropdown-content z-[10] menu shadow bg-base-100 indent-px rounded-md w-56"
+          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
           <section className="flex menu items-center">
             <div className="menu menu-dropdown  dropdown-hover p-2 text-black">
@@ -49,4 +49,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default SmCategories;

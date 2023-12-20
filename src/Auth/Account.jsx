@@ -27,11 +27,15 @@ const Account = () => {
           className="dropdown-content z-[10] menu bg-orange-200 w-full font-bold p-3 text-black rounded-md"
         >
           {user?.email ? (
-            <button onClick={() => handleLogout()}>
-              <Link to="/login">Logout</Link>
-            </button>
+            <>
+              <button onClick={() => handleLogout()}>
+                <Link to="/login">Logout</Link>
+              </button>
+            </>
           ) : (
-            <Link to="/login">Login</Link>
+            <>
+              <Link to="/login">Login</Link>
+            </>
           )}
         </ul>
       </div>
