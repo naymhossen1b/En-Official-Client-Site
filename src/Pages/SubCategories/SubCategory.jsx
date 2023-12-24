@@ -75,13 +75,13 @@ const SubCategory = () => {
           </section>
         </div>
         <div className="col-span-7">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-8">
             <div>
               <h3 className="text-xl font-bold">Trending items</h3>
             </div>
             <div className="flex items-center gap-3 font-medium">
-              <p>Short by</p>
-              <select className="select select-bordered rounded-full">
+              <p className="md:font-medium">Short by</p>
+              <select className=" select select-bordered rounded-full">
                 <option disabled selected>
                   Relevance
                 </option>

@@ -7,11 +7,13 @@ import SubCategory from "../Pages/SubCategories/SubCategory";
 import ProductDetails from "../Pages/Products/ProductDetails";
 import Cart from "../Pages/Cart/Cart";
 import SubProductDetails from "../Pages/SubCategories/SubProductDetails";
+import Error from "../Components/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",

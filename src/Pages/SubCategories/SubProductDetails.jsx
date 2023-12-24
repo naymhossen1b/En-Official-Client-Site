@@ -55,7 +55,7 @@ const SubProductDetails = () => {
         </div>
         {/* Right side product section */}
         <div className="col-span-7">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-8">
             <div>
               <h3 className="text-xl font-bold">Trending items</h3>
             </div>
