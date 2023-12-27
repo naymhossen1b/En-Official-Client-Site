@@ -31,6 +31,7 @@ const Account = () => {
               <button onClick={() => handleLogout()}>
                 <Link to="/login">Logout</Link>
               </button>
+              <Link to="/dashboard">Dashboard</Link>
             </>
           ) : (
             <>

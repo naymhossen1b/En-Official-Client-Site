@@ -8,6 +8,9 @@ import ProductDetails from "../Pages/Products/ProductDetails";
 import Cart from "../Pages/Cart/Cart";
 import SubProductDetails from "../Pages/SubCategories/SubProductDetails";
 import Error from "../Components/Error";
+import Dashboard from "../Layouts/Dashboard";
+import AllModerator from "../Dashboard/Admin/AllModerator";
+import Users from "../Dashboard/Admin/Users";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +48,21 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:'/dashboard',
+    element: <Dashboard />,
+    children: [
+      //// Admin Section
+      {
+        path:"allModerator",
+        element: <AllModerator />
+      },
+      {
+        path: 'users',
+        element: <Users />
+      }
+    ]
+  }
 ]);
 
 export default router;
