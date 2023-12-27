@@ -11,6 +11,7 @@ import Error from "../Components/Error";
 import Dashboard from "../Layouts/Dashboard";
 import AllModerator from "../Dashboard/Admin/AllModerator";
 import Users from "../Dashboard/Admin/Users";
+import DashboardHome from "../Dashboard/DashboardHome";
 
 const router = createBrowserRouter([
   {
@@ -49,20 +50,24 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path:'/dashboard',
+    path: "/dashboard",
     element: <Dashboard />,
     children: [
       //// Admin Section
       {
-        path:"allModerator",
-        element: <AllModerator />
+        path: "/dashboard",
+        element: <DashboardHome />,
       },
       {
-        path: 'users',
-        element: <Users />
-      }
-    ]
-  }
+        path: "allModerator",
+        element: <AllModerator />,
+      },
+      {
+        path: "users",
+        element: <Users />,
+      },
+    ],
+  },
 ]);
 
 export default router;

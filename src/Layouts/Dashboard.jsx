@@ -6,17 +6,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link, Outlet } from "react-router-dom";
+import AdminMenus from "../Dashboard/Admin/AdminMenus";
+import { IoMdHome } from "react-icons/io";
 
 const drawerWidth = 240;
 
@@ -30,21 +26,19 @@ function Dashboard(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar>
+        <div className="flex items-center gap-2">
+          <img className="rounded-full" src="../../public/favicon.ico" alt="" />
+          <h2 className="text-xl font-bold">Urban Haven</h2>
+        </div>
+      </Toolbar>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-        <div className="menu space-y-3 texc">
-          <Link to="/dashboard/users">Users</Link>
-          <Link to="/dashboard/allModerator">Moderator</Link>
-        </div>
+        <AdminMenus />
+        <Link to="/" className="flex items-center text-center gap-3 px-5 font-medium">
+          <IoMdHome className="text-3xl" />
+          Home
+        </Link>
       </List>
     </div>
   );
@@ -62,7 +56,7 @@ function Dashboard(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar className="bg-white">
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -72,9 +66,7 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
+          <Typography variant="h6">Urban Haven</Typography>
         </Toolbar>
       </AppBar>
       <Box
@@ -109,7 +101,6 @@ function Dashboard(props) {
           {drawer}
         </Drawer>
       </Box>
-      <div></div>
       <Box
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
