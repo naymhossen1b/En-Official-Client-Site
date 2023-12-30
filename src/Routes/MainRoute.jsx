@@ -12,6 +12,7 @@ import Dashboard from "../Layouts/Dashboard";
 import AllModerator from "../Dashboard/Admin/AllModerator";
 import Users from "../Dashboard/Admin/Users";
 import DashboardHome from "../Dashboard/DashboardHome";
+import ProductList from "../Dashboard/Moderator/ProductList";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "users",
         element: <Users />,
+      },
+      {
+        path: "productList",
+        element: <ProductList />,
       },
     ],
   },

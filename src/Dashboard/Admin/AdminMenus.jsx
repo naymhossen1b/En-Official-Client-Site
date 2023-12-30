@@ -19,6 +19,10 @@ const AdminMenus = () => {
           <FaUser className="text-3xl" />
           Moderator
         </Link>
+        <Link className="flex items-center gap-3 font-medium" to="/dashboard/productList">
+          <FaUser className="text-3xl" />
+          Product List
+        </Link>
       </div>
     </div>
   );

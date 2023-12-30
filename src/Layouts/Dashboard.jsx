@@ -25,7 +25,7 @@ function Dashboard(props) {
   };
 
   const drawer = (
-    <div>
+    <div className="bg-gray-700 text-white">
       <Toolbar>
         <div className="flex items-center gap-2">
           <img className="rounded-full" src="../../public/favicon.ico" alt="" />
