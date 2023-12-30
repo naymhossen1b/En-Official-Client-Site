@@ -1,6 +1,8 @@
-import UseProducts from "../../Hooks/UseProducts";
+import UseProducts from "../../../Hooks/UseProducts";
 import { FaRegStar } from "react-icons/fa";
-import UseRating from "../../Hooks/UseRating";
+import UseRating from "../../../Hooks/UseRating";
+import { Pagination } from "@mui/material";
+import FilterProduct from "./FilterProduct";
 
 const ProductList = () => {
   const [products] = UseProducts();
@@ -8,6 +10,11 @@ const ProductList = () => {
 
   return (
     <div>
+      {/* Add product and Filter product system */}
+      <div className="py-5">
+        <FilterProduct />
+      </div>
+      {/* All Products table */}
       <div className="overflow-x-auto">
         <table className="table">
           <thead>
@@ -63,6 +70,10 @@ const ProductList = () => {
             ))}
           </tbody>
         </table>
+      </div>
+      {/* Pagination */}
+      <div className="flex justify-end py-4 px-10">
+        <Pagination count={products?.length} variant="outlined" shape="rounded" />
       </div>
     </div>
   );
