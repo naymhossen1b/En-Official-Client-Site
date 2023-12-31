@@ -20,6 +20,10 @@ const ProductList = () => {
       .catch((err) => toast.error(err.message));
   };
 
+  const handleUpdate = async (id)=> {
+    await SecureAxios.patch(`/products/${id}`)
+  }
+
   return (
     <div className="bg-white border rounded-md shadow-2xl">
       {/* Add product and Filter product system */}
@@ -79,7 +83,7 @@ const ProductList = () => {
                   <button onClick={() => handleDelete(product?._id)}>
                     <FaRegTrashAlt className="text-red-400" />
                   </button>
-                  <FaEdit className="text-green-300" />
+                  <button onClick={() => handleUpdate(product?._id)}><FaEdit className="text-green-300" /></button>
                 </td>
               </tr>
             ))}
