@@ -25,7 +25,7 @@ function Dashboard(props) {
   };
 
   const drawer = (
-    <div className="bg-gray-700 text-white">
+    <div className="bg-slate-700 text-white">
       <Toolbar>
         <div className="flex items-center gap-2">
           <img className="rounded-full" src="../../public/favicon.ico" alt="" />
@@ -35,7 +35,7 @@ function Dashboard(props) {
       <Divider />
       <List>
         <AdminMenus />
-        <Link to="/" className="flex items-center text-center gap-3 px-5 font-medium">
+        <Link to="/" className="flex items-center text-center gap-8 px-5 font-medium">
           <IoMdHome className="text-3xl" />
           Home
         </Link>
@@ -102,11 +102,14 @@ function Dashboard(props) {
         </Drawer>
       </Box>
       <Box
+        className="bg-slate-200"
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Outlet />
+        <div>
+          <Outlet />
+        </div>
       </Box>
     </Box>
   );

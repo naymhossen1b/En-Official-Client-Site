@@ -1,7 +1,7 @@
 import UseProducts from "../../../Hooks/UseProducts";
 import { FaRegStar } from "react-icons/fa";
 import UseRating from "../../../Hooks/UseRating";
-import { Pagination } from "@mui/material";
+import { Divider, Pagination } from "@mui/material";
 import FilterProduct from "./FilterProduct";
 
 const ProductList = () => {
@@ -9,7 +9,7 @@ const ProductList = () => {
   const [rating] = UseRating();
 
   return (
-    <div>
+    <div className="bg-white border rounded-md shadow-2xl">
       {/* Add product and Filter product system */}
       <div className="py-5">
         <FilterProduct />
@@ -29,12 +29,10 @@ const ProductList = () => {
             </tr>
           </thead>
           <tbody>
-            {products?.map((product) => (
+            {products?.map((product, index) => (
               <tr key={product._id}>
                 <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
+                  {index+1}.
                 </th>
                 <td>
                   <div className="flex items-center gap-3">
@@ -71,6 +69,7 @@ const ProductList = () => {
           </tbody>
         </table>
       </div>
+      <Divider />
       {/* Pagination */}
       <div className="flex justify-end py-4 px-10">
         <Pagination count={products?.length} variant="outlined" shape="rounded" />
