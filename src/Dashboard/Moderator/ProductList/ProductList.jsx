@@ -3,10 +3,22 @@ import { FaRegStar } from "react-icons/fa";
 import UseRating from "../../../Hooks/UseRating";
 import { Divider, Pagination } from "@mui/material";
 import FilterProduct from "./FilterProduct";
+import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
+import SecureAxios from "../../../Hooks/SecureAxios";
+import toast from "react-hot-toast";
 
 const ProductList = () => {
-  const [products] = UseProducts();
+  const [products, refetch] = UseProducts();
   const [rating] = UseRating();
+
+  const handleDelete = async (id) => {
+    await SecureAxios.delete(`/products/${id}`)
+      .then(() => {
+        toast.success("Delete Success!");
+        refetch();
+      })
+      .catch((err) => toast.error(err.message));
+  };
 
   return (
     <div className="bg-white border rounded-md shadow-2xl">
@@ -26,14 +38,13 @@ const ProductList = () => {
               <th>Qty</th>
               <th>Status</th>
               <th>Ratings</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {products?.map((product, index) => (
               <tr key={product._id}>
-                <th>
-                  {index+1}.
-                </th>
+                <th>{index + 1}.</th>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -50,7 +61,7 @@ const ProductList = () => {
                 <td>${product?.product_price}</td>
                 <td>{product?.product_quantity}</td>
                 <td>
-                  {product?.product_stock === true ? (
+                  {product?.product_quantity >= 0 ? (
                     <h3 className="flex text-green-600 items-center gap-1 font-medium">In Stock</h3>
                   ) : (
                     <h3 className="flex text-red-600 items-center gap-1 font-medium">Stock Out</h3>
@@ -63,6 +74,12 @@ const ProductList = () => {
                     </button>
                     <p className="font-medium">({rating?.length})</p>
                   </div>
+                </td>
+                <td className="flex items-center gap-5 text-2xl hover:cursor-pointer">
+                  <button onClick={() => handleDelete(product?._id)}>
+                    <FaRegTrashAlt className="text-red-400" />
+                  </button>
+                  <FaEdit className="text-green-300" />
                 </td>
               </tr>
             ))}
