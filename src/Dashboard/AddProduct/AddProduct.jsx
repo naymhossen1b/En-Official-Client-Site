@@ -1,7 +1,7 @@
 import { Divider } from "@mui/material";
 import { useState } from "react";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { message, Upload } from "antd";
+import { DatePicker, message, Upload } from "antd";
 import UseSubCategory from "../../Hooks/UseSubCategory";
 
 const getBase64 = (img, callback) => {
@@ -24,9 +24,8 @@ const beforeUpload = (file) => {
 const AddProduct = () => {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
+  const [isDet, setIsDate] = useState();
   const [subcategory] = UseSubCategory();
-
-  //   const options = subcategory?.map( item => <p key={item.subcategory}>{item?.subcategory}</p>)
 
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
@@ -54,20 +53,26 @@ const AddProduct = () => {
     </div>
   );
 
+  const onChange = (date, dateString) => {
+    setIsDate(date, dateString);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const product_title = form.title.value;
     const product_details = form.details.value;
     const product_image = imageUrl;
-    const info = { product_details, product_title, product_image };
+    const subCategory = form.subCategory.value;
+    const uploadDate = isDet
+    const info = { product_details, product_title, product_image, subCategory, uploadDate };
     console.log(info);
   };
 
   return (
     <>
       <div className="bg-white rounded-md shadow-xl px-5 py-2">
-        <div className="space-y-2">
+        <div className="space-y-4">
           <h2 className="text-xl font-bold text-gray-600">Product From</h2>
           <Divider />
         </div>
@@ -124,16 +129,23 @@ const AddProduct = () => {
             </div>
             <div>
               <label className="font-bold label">Product Category</label>
-              <select className="select select-secondary w-full max-w-xs">
-                <option disabled selected>
+              <select
+                name="subCategory"
+                className="border-b-2 border-transparent focus:outline-none focus:border-lime-700 border-b-lime-200 w-full py-2"
+              >
+                <option disabled selected defaultValue={"Pick your category"}>
                   Pick your category
                 </option>
                 {subcategory?.map((item) => (
-                  <option className="text-red-500" key={item?.name}>
+                  <option value={item?.subCategory} className="text-red-500" key={item?.name}>
                     {item?.name}
                   </option>
                 ))}
               </select>
+            </div>
+            <div>
+              <label className="font-bold label">Publish Date Time</label>
+              <DatePicker onChange={onChange} />
             </div>
             <div>
               <input type="submit" value="Submit" className="hover:cursor-pointer btn" />
