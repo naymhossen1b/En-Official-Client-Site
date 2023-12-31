@@ -8,6 +8,7 @@ import useCart from "../../Hooks/UseCart";
 import UseAuth from "../../Hooks/UseAuth";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import Rating from "../../Components/Rating";
+import { Image } from "antd";
 
 const ProductDetails = () => {
   const { user } = UseAuth();
@@ -76,7 +77,7 @@ const ProductDetails = () => {
     <div className="py-8 grid gap-5 grid-cols-1 md:grid-cols-12">
       {/*  Images Section */}
       <div className=" col-span-4">
-        <img className="w-full mx-auto" src={product_image} alt="" />
+        <Image className="w-full mx-auto" src={product_image} alt="" />
       </div>
       {/*  Middle Text section */}
       <div className=" col-span-5">

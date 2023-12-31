@@ -13,6 +13,7 @@ import AllModerator from "../Dashboard/Admin/AllModerator";
 import Users from "../Dashboard/Admin/Users";
 import DashboardHome from "../Dashboard/DashboardHome";
 import ProductList from "../Dashboard/Moderator/ProductList/ProductList";
+import AddProduct from "../Dashboard/AddProduct/AddProduct";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "productList",
         element: <ProductList />,
+      },
+      {
+        path: "addProduct",
+        element: <AddProduct />,
       },
     ],
   },
