@@ -1,73 +1,74 @@
 import { Divider } from "@mui/material";
 import { useState } from "react";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { DatePicker, message, Upload } from "antd";
+import { DatePicker } from "antd";
 import UseSubCategory from "../../Hooks/UseSubCategory";
-
-const getBase64 = (img, callback) => {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => callback(reader.result));
-  reader.readAsDataURL(img);
-};
-const beforeUpload = (file) => {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-  if (!isJpgOrPng) {
-    message.error("You can only upload JPG/PNG file!");
-  }
-  const isLt2M = file.size / 2024 / 2024 < 5;
-  if (!isLt2M) {
-    message.error("Image must smaller than 2MB!");
-  }
-  return isJpgOrPng && isLt2M;
-};
+import UseProducts from "../../Hooks/UseProducts";
+import { imageUpload } from "../../Utils/ImageHost";
+import SecureAxios from "../../Hooks/SecureAxios";
+import toast from "react-hot-toast";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 const AddProduct = () => {
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState();
+  const [imagePreview, setImagePreview] = useState(null);
   const [isDet, setIsDate] = useState();
   const [subcategory] = UseSubCategory();
+  const [, refetch] = UseProducts();
 
-  const handleChange = (info) => {
-    if (info.file.status === "uploading") {
-      setLoading(true);
-      return;
-    }
-    if (info.file.status === "done") {
-      // Get this url from response in real world.
-      getBase64(info.file.originFileObj, (url) => {
-        setLoading(false);
-        setImageUrl(url);
-      });
-    }
-  };
-  const uploadButton = (
-    <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div
-        style={{
-          marginTop: 8,
-        }}
-      >
-        Upload Image
-      </div>
-    </div>
-  );
-
-  const onChange = (date, dateString) => {
-    setIsDate(date, dateString);
+  const onChange = (dateString) => {
+    setIsDate(dateString);
   };
 
-  const handleSubmit = (e) => {
+  const handleImage = (file) => {
+    const imageUrl = URL.createObjectURL(file);
+    setImagePreview(imageUrl);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const product_title = form.title.value;
     const product_details = form.details.value;
-    const product_image = imageUrl;
+    const images = form.image.files[0];
+    const imageURL = await imageUpload(images);
+    const product_image = imageURL.data.display_url;
     const subCategory = form.subCategory.value;
-    const uploadDate = isDet
-    const info = { product_details, product_title, product_image, subCategory, uploadDate };
+    const uploadDate = isDet;
+    const product_price = form.product_price.value;
+    const product_discount = form.product_discount.value;
+    const product_quantity = form.product_quantity.value;
+    const product_sold_quantity = 499;
+    const product_brand_name = form.product_brand_name.value;
+    const product_ratings = form.product_ratings.value;
+    const info = {
+      product_details,
+      product_title,
+      product_image,
+      subCategory,
+      product_quantity,
+      uploadDate,
+      product_discount,
+      product_price,
+      product_sold_quantity,
+      product_brand_name,
+      product_ratings,
+    };
     console.log(info);
+    try {
+      await SecureAxios.post("/products", info);
+      toast.success("Product Add Success!");
+      refetch();
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.message);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  if (loading) {
+    return <span className="loading loading-ring loading-lg flex h-screen"></span>;
+  }
 
   return (
     <>
@@ -76,79 +77,146 @@ const AddProduct = () => {
           <h2 className="text-xl font-bold text-gray-600">Product From</h2>
           <Divider />
         </div>
-        <section className="text-black py-5">
-          <form onSubmit={handleSubmit} className="space-y-3">
+        <section className="text-black py-8">
+          <form onSubmit={handleSubmit} className="space-y-8">
             <div>
               <label className="font-bold">Product Title</label>
               <input
                 id="hiddenBorderInput"
                 type="text"
                 name="title"
-                className="border-b-2 border-transparent focus:outline-none focus:border-lime-700 border-b-lime-200 w-full py-2"
+                className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full py-2"
                 placeholder="product title.."
               />
             </div>
             <div>
               <label className="font-bold">Product Details</label>
               <textarea
-                className="border-b-2 border-transparent focus:outline-none focus:border-lime-700 border-b-lime-200 w-full py-2"
+                className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full py-2"
                 placeholder="Details your product"
                 name="details"
                 id=""
                 rows="3"
               ></textarea>
             </div>
-            <label className="font-bold">Product Image</label>
+            <label className="font-bold label">Product Image</label>
             <div className="flex items-center">
+              <div className=" rounded-lg text-start flex justify-start">
+                <div className="file_upload  rounded-lg">
+                  <div className=" text-center">
+                    <label>
+                      <input
+                        onChange={(e) => handleImage(e.target.files[0])}
+                        className="text-sm cursor-pointer hidden"
+                        type="file"
+                        name="image"
+                        id="image"
+                        accept="image/*"
+                      />
+                      <div>
+                        <IoAddCircleOutline className="text-5xl text-green-400" />
+                        <div>
+                          {/* Display the image preview */}
+                          {imagePreview && (
+                            <div className="w-64 rounded-md">
+                              <img
+                                src={imagePreview}
+                                alt="Preview"
+                                className="rounded-lg"
+                                style={{ maxWidth: "100%" }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 items-center">
               <div>
-                <Upload
-                  name="image"
-                  listType="picture-card"
-                  className="avatar-uploader"
-                  showUploadList={false}
-                  action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
-                  beforeUpload={beforeUpload}
-                  onChange={handleChange}
+                <label className="font-bold label">Product Category</label>
+                <select
+                  name="subCategory"
+                  className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full"
                 >
-                  {imageUrl ? (
-                    <img
-                      src={imageUrl}
-                      alt="avatar"
-                      style={{
-                        width: "100%",
-                      }}
-                    />
-                  ) : (
-                    uploadButton
-                  )}
-                </Upload>
+                  <option disabled selected defaultValue={"Pick your category"}>
+                    Pick your category
+                  </option>
+                  {subcategory?.map((item) => (
+                    <option value={item?.subCategory} className="text-red-500" key={item?.name}>
+                      {item?.name}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
-                <img className="w-64 rounded-md" src={imageUrl} alt="" />
+                <label className="font-bold label">Publish Date Time</label>
+                <DatePicker
+                  className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full"
+                  onChange={onChange}
+                />
+              </div>
+              <div>
+                <label className="font-bold">Product Price</label>
+                <input
+                  id="hiddenBorderInput"
+                  type="number"
+                  name="product_price"
+                  className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full"
+                  placeholder="product price..."
+                />
+              </div>
+              <div>
+                <label className="font-bold">Product Discount Price</label>
+                <input
+                  id="hiddenBorderInput"
+                  type="number"
+                  name="product_discount"
+                  className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full"
+                  placeholder="discount price..."
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 items-center">
+              <div>
+                <label className="font-bold">Product Qty</label>
+                <input
+                  id="hiddenBorderInput"
+                  type="number"
+                  name="product_quantity"
+                  className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full py-2"
+                  placeholder="product qty.."
+                />
+              </div>
+              <div>
+                <label className="font-bold">Product Brand Name</label>
+                <input
+                  id="hiddenBorderInput"
+                  type="text"
+                  name="product_brand_name"
+                  className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full py-2"
+                  placeholder="type products brand name"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Product Ratings</label>
+                <input
+                  id="hiddenBorderInput"
+                  type="number"
+                  name="product_ratings"
+                  className="border-2 rounded-md p-2 border-transparent focus:outline-none focus:border-slate-300 border-slate-300 w-full py-2"
+                  placeholder="give a ratings"
+                />
               </div>
             </div>
             <div>
-              <label className="font-bold label">Product Category</label>
-              <select
-                name="subCategory"
-                className="border-b-2 border-transparent focus:outline-none focus:border-lime-700 border-b-lime-200 w-full py-2"
-              >
-                <option disabled selected defaultValue={"Pick your category"}>
-                  Pick your category
-                </option>
-                {subcategory?.map((item) => (
-                  <option value={item?.subCategory} className="text-red-500" key={item?.name}>
-                    {item?.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="font-bold label">Publish Date Time</label>
-              <DatePicker onChange={onChange} />
-            </div>
-            <div>
-              <input type="submit" value="Submit" className="hover:cursor-pointer btn" />
+              <input
+                type="submit"
+                value="Submit"
+                className="hover:cursor-pointer btn bg-slate-500 text-white font-bold"
+              />
             </div>
           </form>
         </section>
