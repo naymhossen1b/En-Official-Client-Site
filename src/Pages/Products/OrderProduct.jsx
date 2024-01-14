@@ -18,7 +18,7 @@ const OrderProduct = ({ items }) => {
             </Link>
             <div className="absolute -mt-4 ml-[155px]">
               <h2>
-                {item.product_stock === true ? (
+                {parseFloat(item?.product_quantity) > 0 ? (
                   <h3 className="flex items-center text-sm gap-1 font-medium">
                     Stock <MdOutlineVerified className="text-green-500" />
                   </h3>

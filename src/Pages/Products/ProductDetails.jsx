@@ -32,7 +32,7 @@ const ProductDetails = () => {
     product_quantity,
   } = details || {};
 
-  console.log(product_stock);
+  const numbersOfQuantity = parseFloat(product_quantity);
 
   const handleAddCart = async () => {
     const cartData = {
@@ -49,7 +49,7 @@ const ProductDetails = () => {
       product_sold_quantity,
     };
 
-    if (product_stock) {
+    if (numbersOfQuantity > 0) {
       await SecureAxios.post("/userCarts", cartData).then(() => {
         // console.log(res.data);
         toast.success(`Product Added Success!`);
@@ -125,7 +125,7 @@ const ProductDetails = () => {
         <h3 className="text-xl">${product_price}</h3>
         <div className="py-2">
           <h2>
-            {product_stock === true ? (
+            {numbersOfQuantity > 0 ? (
               <h3 className="flex text-green-600 items-center gap-1 font-medium">In Stock</h3>
             ) : (
               <h3 className="flex text-red-600 items-center gap-1 font-medium">Stock Out</h3>

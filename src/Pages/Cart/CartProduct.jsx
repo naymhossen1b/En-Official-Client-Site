@@ -9,8 +9,9 @@ const CartProduct = ({ product }) => {
 
   const [,refetch] = useCart();
 
-  const { product_title, product_image, product_price, product_brand_name, product_stock, _id } =
+  const { product_title, product_image, product_price, product_brand_name, _id, product_quantity } =
     product || {};
+    const numbersOfQuantity = parseFloat(product_quantity);
 
     const handleDelete = (id) => {
       // console.log(id);
@@ -53,7 +54,7 @@ const CartProduct = ({ product }) => {
           </div>
           <div className="py-2">
             <h2>
-              {product_stock === true ? (
+              {numbersOfQuantity > 0 ? (
                 <h3 className="flex text-green-600 items-center gap-1 font-medium">In Stock</h3>
               ) : (
                 <h3 className="flex text-red-600 items-center gap-1 font-medium">Stock Out</h3>
