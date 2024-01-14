@@ -1,13 +1,23 @@
 import useCart from "../../Hooks/UseCart";
 import { TiTickOutline } from "react-icons/ti";
 import CartProduct from "./CartProduct";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const [cart] = useCart();
+  // console.log(cart)
 
-  const totalPrice = cart.reduce((acc, price) => acc + price.product_price, 0).toFixed();
-  const discountPrice = cart.reduce((acc, price) => acc + price.product_discount, 0).toFixed();
+  const totalPrice = cart
+    .reduce((acc, price) => acc + parseFloat(price.product_price), 0)
+    .toFixed();
+  const discountPrice = cart
+    .reduce((acc, price) => acc + parseFloat(price.product_discount), 0)
+    .toFixed();
   const estimatedTotal = totalPrice - discountPrice;
+
+  if (estimatedTotal > 50000) {
+    toast.error("Already you buy a maximum products!");
+  }
 
   return (
     <section className="py-8">
