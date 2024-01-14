@@ -25,49 +25,19 @@ const Products = () => {
               items={products.filter((product) => product.subCategory === "headphones")}
             />
           </TabPane>
-          <TabPane key="headphones" tab="Headphones">
+          <TabPane key="laptops" tab="Laptops">
             <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
+              items={products.filter((product) => product.subCategory === "laptops")}
             />
           </TabPane>
-          <TabPane key="headphones" tab="Headphones">
+          <TabPane key="mensclothing" tab="Mens Clothing">
             <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
+              items={products.filter((product) => product.subCategory === "mensclothing")}
             />
           </TabPane>
-          <TabPane key="headphones" tab="Headphones">
+          <TabPane key="womensclothing" tab="Womans Clothing">
             <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
-            />
-          </TabPane>
-          <TabPane key="headphones" tab="Headphones">
-            <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
-            />
-          </TabPane>
-          <TabPane key="headphones" tab="Headphones">
-            <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
-            />
-          </TabPane>
-          <TabPane key="headphones" tab="Headphones">
-            <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
-            />
-          </TabPane>
-          <TabPane key="headphones" tab="Headphones">
-            <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
-            />
-          </TabPane>
-          <TabPane key="headphones" tab="Headphones">
-            <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
-            />
-          </TabPane>
-          <TabPane key="headphones" tab="Headphones">
-            <OrderProduct
-              items={products.filter((product) => product.subCategory === "headphones")}
+              items={products.filter((product) => product.subCategory === "womensclothing")}
             />
           </TabPane>
         </Tabs>
