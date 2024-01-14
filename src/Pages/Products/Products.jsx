@@ -1,23 +1,14 @@
-// Products.js
 import UseProducts from "../../Hooks/UseProducts";
+import UseSubCategory from "../../Hooks/UseSubCategory";
 import ProductTabs from "./ProductTabs";
 
 const Products = () => {
   const [products] = UseProducts();
-
-  const categories = [
-    { label: "Smartphones", value: "smartphones" },
-    { label: "Cameras", value: "cameras" },
-    { label: "Headphones", value: "headphones" },
-    { label: "Laptops", value: "laptops" },
-    { label: "Mens Clothing", value: "mensclothing" },
-    { label: "Womens Clothing", value: "womensclothing" },
-  ];
-
+  const [subcategory] = UseSubCategory();
   return (
     <div>
       <div>
-        <ProductTabs products={products} categories={categories} />
+        <ProductTabs products={products} categories={subcategory} />
       </div>
     </div>
   );
