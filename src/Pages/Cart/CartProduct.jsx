@@ -3,48 +3,52 @@ import { FaTrashAlt } from "react-icons/fa";
 import SecureAxios from "../../Hooks/SecureAxios";
 import useCart from "../../Hooks/UseCart";
 import Swal from "sweetalert2";
-import { CiCircleMinus, CiCirclePlus } from "react-icons/ci"; 
+import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 
 const CartProduct = ({ product }) => {
+  const [, refetch] = useCart();
 
-  const [,refetch] = useCart();
+  const {
+    product_title,
+    product_image,
+    product_price,
+    product_brand_name,
+    _id,
+    numbersOfQuantity,
+  } = product || {};
 
-  const { product_title, product_image, product_price, product_brand_name, _id, product_quantity } =
-    product || {};
-    const numbersOfQuantity = parseFloat(product_quantity);
-
-    const handleDelete = (id) => {
-      // console.log(id);
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          SecureAxios.delete(`/deleteCarts/${id}`).then((res) => {
-            if (res.data.deletedCount > 0) {
-              refetch();
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
-              });
-            }
-          });
-        }
-      });
-    };
+  const handleDelete = (id) => {
+    // console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        SecureAxios.delete(`/deleteCarts/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   return (
     <div>
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-12">
         {/* Image section */}
         <div className="col-span-3">
-            <img className="w-full mx-auto" src={product_image} alt="" />
+          <img className="w-full mx-auto" src={product_image} alt="" />
         </div>
         {/* Text section */}
         <div className="col-span-7">
@@ -79,9 +83,7 @@ const CartProduct = ({ product }) => {
                 <p>0</p>
               </div>
             </div>
-            <div
-            onClick={() => handleDelete(_id)}
-            className="text-2xl text-red-500" role="button">
+            <div onClick={() => handleDelete(_id)} className="text-2xl text-red-500" role="button">
               <FaTrashAlt />
             </div>
           </div>

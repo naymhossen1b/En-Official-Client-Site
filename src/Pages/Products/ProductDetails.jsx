@@ -47,6 +47,7 @@ const ProductDetails = () => {
       product_stock,
       product_full_specifications,
       product_sold_quantity,
+      numbersOfQuantity
     };
 
     if (numbersOfQuantity > 0) {
